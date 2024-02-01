@@ -1,5 +1,3 @@
-# Backend
-Created with Json Rest Server
+# Project create as a side project with Flutter during Flutter Experince event
 
-Command to add to PATH in the current section
-export PATH="$PATH":"$HOME/.pub-cache/bin
+Last video watched: D1A4
