@@ -1,6 +1,6 @@
 library clinic_system_core;
 
-export "./functionalPrograming/either.dart";
-export "./functionalPrograming/nil.dart";
-export "./functionalPrograming/unit.dart";
-export "./helpers/messages.dart";
+export 'src/functionalPrograming/either.dart';
+export 'src/functionalPrograming/nil.dart';
+export 'src/functionalPrograming/unit.dart';
+export 'src/helpers/messages.dart';
