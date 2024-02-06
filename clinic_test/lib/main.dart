@@ -39,11 +39,14 @@ class _MyHomePageState extends State<MyHomePage> with MessageViewMixin {
   }
 
   void _incrementCounter() {
-    Messages.showSuccess("Teste", context);
     controller.testFazerAlgo();
     setState(() {
       _counter++;
     });
+  }
+
+  void _showError() {
+    controller.showError("Teste");
   }
 
   @override
@@ -64,6 +67,15 @@ class _MyHomePageState extends State<MyHomePage> with MessageViewMixin {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            ElevatedButton(
+                onPressed: controller.showASuccess,
+                child: const Text("Show Success")),
+            ElevatedButton(
+                onPressed: controller.showAnError,
+                child: const Text("Show Error")),
+            ElevatedButton(
+                onPressed: controller.showAnInfo,
+                child: const Text("Show info")),
           ],
         ),
       ),

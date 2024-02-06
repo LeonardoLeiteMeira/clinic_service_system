@@ -51,18 +51,18 @@ mixin MessageStateMixin {
   void clearSuccess() => _successMessage.value = null;
 
   void showError(String message) {
-    untracked(() => clearError());
+    untracked(() => clearAll());
     _errorMessage.value = message;
   }
 
   void showInfo(String message) {
-    untracked(() => clearInfo());
-    _errorMessage.value = message;
+    untracked(() => clearAll());
+    _infoMessage.value = message;
   }
 
   void showSuccess(String message) {
-    untracked(() => clearSuccess());
-    _errorMessage.value = message;
+    untracked(() => clearAll());
+    _successMessage.value = message;
   }
 
   void clearAll() {
