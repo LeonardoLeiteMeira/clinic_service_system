@@ -14,6 +14,8 @@ dependencies:
   signals: ^4.0.3
   asyncstate: 2.1.1-dev.1
   loading_animation_widget: ^1.2.0+4
+  dio: ^5.4.0
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
