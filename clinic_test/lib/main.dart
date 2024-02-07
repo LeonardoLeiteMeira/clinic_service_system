@@ -1,6 +1,8 @@
+import 'package:asyncstate/asyncstate.dart';
 import 'package:clinic_test/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:clinic_system_core/clinic_system_core.dart';
+import 'package:flutter_getit/flutter_getit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,13 +12,13 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    return ClinicCoreConfig(
+      title: "Meu Appzao",
+      pageBuilder: [
+        FlutterGetItPageBuilder(
+            page: (_) => const MyHomePage(title: 'Flutter Demo Home Page'),
+            path: "/")
+      ],
     );
   }
 }
@@ -31,6 +33,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> with MessageViewMixin {
   int _counter = 0;
   final controller = HomeController();
+  final buttonStyle = ElevatedButton.styleFrom(
+      padding: const EdgeInsets.all(10), shape: const BeveledRectangleBorder());
 
   @override
   void initState() {
@@ -39,14 +43,12 @@ class _MyHomePageState extends State<MyHomePage> with MessageViewMixin {
   }
 
   void _incrementCounter() {
+    // Nao entendi bem - o asyncloader chamou o loader no core e executou o loading na tela
+    Future.delayed(const Duration(seconds: 3)).asyncLoader();
     controller.testFazerAlgo();
     setState(() {
       _counter++;
     });
-  }
-
-  void _showError() {
-    controller.showError("Teste");
   }
 
   @override
@@ -69,11 +71,16 @@ class _MyHomePageState extends State<MyHomePage> with MessageViewMixin {
             ),
             ElevatedButton(
                 onPressed: controller.showASuccess,
+                style: buttonStyle,
                 child: const Text("Show Success")),
+            const SizedBox(height: 10),
             ElevatedButton(
+                style: buttonStyle,
                 onPressed: controller.showAnError,
                 child: const Text("Show Error")),
+            const SizedBox(height: 10),
             ElevatedButton(
+                style: buttonStyle,
                 onPressed: controller.showAnInfo,
                 child: const Text("Show info")),
           ],
