@@ -1,5 +1,6 @@
 import 'package:asyncstate/asyncstate.dart';
 import 'package:clinic_system_core/src/loader/clinic_loader.dart';
+import 'package:clinic_system_core/src/theme/clinic_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
@@ -32,6 +33,7 @@ class ClinicCoreConfig extends StatelessWidget {
             loader: ClinicLoader(),
             builder: (navigatorOBserver) {
               return MaterialApp(
+                theme: ClinicTheme.lightTheme,
                 title: title,
                 navigatorObservers: [
                   flutterGetItNavObserver,

@@ -10,3 +10,4 @@ export 'src/clinic_core_config.dart';
 export 'src/exceptions/auth_exception.dart';
 export 'src/exceptions/respository_exception.dart';
 export 'src/exceptions/service_exception.dart';
+export 'src/theme/clinic_theme.dart';
