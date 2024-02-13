@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:clinic_self_service/src/binding/clinic_app_binding.dart';
 import 'package:clinic_self_service/src/modules/auth/auth_module.dart';
+import 'package:clinic_self_service/src/modules/home/home_module.dart';
 import 'package:clinic_self_service/src/pages/splash_page/splash_page.dart';
 import 'package:clinic_system_core/clinic_system_core.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,10 @@ class ClinicSelfServiceApp extends StatelessWidget {
     return ClinicCoreConfig(
       title: "Auto Atendimento",
       bindings: ClinicAppBinding(),
-      modules: [AuthModule()],
+      modules: [
+        AuthModule(),
+        HomeModule(),
+      ],
       pageBuilder: [
         FlutterGetItPageBuilder(page: (_) => const SplashPage(), path: "/")
       ],
