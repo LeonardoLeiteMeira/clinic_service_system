@@ -11,3 +11,5 @@ export 'src/exceptions/auth_exception.dart';
 export 'src/exceptions/respository_exception.dart';
 export 'src/exceptions/service_exception.dart';
 export 'src/theme/clinic_theme.dart';
+export 'src/widgets/clinic_app_bar.dart';
+export 'src/widgets/icon_popup_widget.dart';

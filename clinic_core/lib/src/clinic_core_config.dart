@@ -33,6 +33,7 @@ class ClinicCoreConfig extends StatelessWidget {
             loader: ClinicLoader(),
             builder: (navigatorOBserver) {
               return MaterialApp(
+                debugShowCheckedModeBanner: false,
                 theme: ClinicTheme.lightTheme,
                 title: title,
                 navigatorObservers: [
