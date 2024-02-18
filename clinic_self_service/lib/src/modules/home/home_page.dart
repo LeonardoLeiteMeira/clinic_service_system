@@ -9,6 +9,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  void navigateToSelfService() =>
+      Navigator.of(context).pushReplacementNamed("/selfService");
+
   @override
   Widget build(BuildContext context) {
     final sizeOf = MediaQuery.sizeOf(context);
@@ -53,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                     width: sizeOf.width * 0.8,
                     height: 48,
                     child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: navigateToSelfService,
                         child: const Text("Iniciar Terminal")),
                   ),
                 ],

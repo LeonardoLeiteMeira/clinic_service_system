@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:clinic_self_service/src/binding/clinic_app_binding.dart';
 import 'package:clinic_self_service/src/modules/auth/auth_module.dart';
 import 'package:clinic_self_service/src/modules/home/home_module.dart';
+import 'package:clinic_self_service/src/modules/self_service/self_service_module.dart';
 import 'package:clinic_self_service/src/pages/splash_page/splash_page.dart';
 import 'package:clinic_system_core/clinic_system_core.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,7 @@ class ClinicSelfServiceApp extends StatelessWidget {
       modules: [
         AuthModule(),
         HomeModule(),
+        SelfServiceModule(),
       ],
       pageBuilder: [
         FlutterGetItPageBuilder(page: (_) => const SplashPage(), path: "/")
