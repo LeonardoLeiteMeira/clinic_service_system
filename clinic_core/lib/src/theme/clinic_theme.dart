@@ -31,6 +31,17 @@ final class ClinicTheme {
         errorBorder: _defaultInputBorder.copyWith(
           borderSide: const BorderSide(color: Colors.red),
         )),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+      backgroundColor: Colors.white,
+      side: const BorderSide(color: blue),
+      foregroundColor: blue,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      textStyle: const TextStyle(
+          fontSize: 14, fontFamily: 'Montserrat', fontWeight: FontWeight.w700),
+    )),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: blue,
