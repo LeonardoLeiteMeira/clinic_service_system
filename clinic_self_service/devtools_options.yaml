@@ -1,0 +1,3 @@
+extensions:
+  - flutter_getit: true
+  - signals: true
