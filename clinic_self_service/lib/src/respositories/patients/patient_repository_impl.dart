@@ -22,6 +22,10 @@ class PatientRepositoryImpl implements PatientRepository {
       }
       return Right(PatientModel.fromJson(data.first));
     } on DioException catch (e, s) {
+      if (e.error is AuthUnauthorized) {
+        return Left(RepositoryExcepetion(
+            message: "Usuário não autorizado. Reinicie o login!"));
+      }
       log("Error ao buscar o paciente por documento", error: e, stackTrace: s);
       return Left(RepositoryExcepetion(
           message: "Error ao buscar o paciente por documento"));
@@ -36,6 +40,10 @@ class PatientRepositoryImpl implements PatientRepository {
           .put('/patients/${patient.id}', data: patient.toJson());
       return Right(Unit());
     } on DioException catch (e, s) {
+      if (e.error is AuthUnauthorized) {
+        return Left(RepositoryExcepetion(
+            message: "Usuário não autorizado. Reinicie o login!"));
+      }
       log("Error ao atualizar o paciente", error: e, stackTrace: s);
       return Left(
           RepositoryExcepetion(message: "Error ao atualizar o paciente"));
