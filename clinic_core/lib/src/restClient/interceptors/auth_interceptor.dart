@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:clinic_system_core/src/constants/local_storage_constants.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../clinic_system_core.dart';
 
 final class AuthInterceptor extends Interceptor {
   @override
@@ -22,13 +26,14 @@ final class AuthInterceptor extends Interceptor {
 
   // @override
   // void onResponse(Response response, ResponseInterceptorHandler handler) {
-  //   // TODO: implement onResponse
   //   super.onResponse(response, handler);
   // }
 
-  // @override
-  // void onError(DioException err, ErrorInterceptorHandler handler) {
-  //   // TODO: implement onError
-  //   super.onError(err, handler);
-  // }
+  @override
+  void onError(DioException err, ErrorInterceptorHandler handler) {
+    if (err.response?.statusCode == 403) {
+      err = err.copyWith(error: AuthUnauthorized());
+    }
+    super.onError(err, handler);
+  }
 }
