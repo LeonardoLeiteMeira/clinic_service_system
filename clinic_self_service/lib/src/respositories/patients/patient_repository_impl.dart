@@ -11,7 +11,7 @@ class PatientRepositoryImpl implements PatientRepository {
   PatientRepositoryImpl({required this.restClient});
 
   @override
-  Future<Either<RespositoryExcepetion, PatientModel?>> findPatientByDocument(
+  Future<Either<RepositoryExcepetion, PatientModel?>> findPatientByDocument(
       String document) async {
     try {
       final Response(:List data) = await restClient.auth
@@ -23,8 +23,22 @@ class PatientRepositoryImpl implements PatientRepository {
       return Right(PatientModel.fromJson(data.first));
     } on DioException catch (e, s) {
       log("Error ao buscar o paciente por documento", error: e, stackTrace: s);
-      return Left(RespositoryExcepetion(
+      return Left(RepositoryExcepetion(
           message: "Error ao buscar o paciente por documento"));
+    }
+  }
+
+  @override
+  Future<Either<RepositoryExcepetion, Unit>> update(
+      PatientModel patient) async {
+    try {
+      await restClient.auth
+          .put('/patients/${patient.id}', data: patient.toJson());
+      return Right(Unit());
+    } on DioException catch (e, s) {
+      log("Error ao atualizar o paciente", error: e, stackTrace: s);
+      return Left(
+          RepositoryExcepetion(message: "Error ao atualizar o paciente"));
     }
   }
 }

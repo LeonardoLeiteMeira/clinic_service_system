@@ -1,5 +1,5 @@
-class RespositoryExcepetion implements Exception {
+class RepositoryExcepetion implements Exception {
   final String message;
 
-  RespositoryExcepetion({this.message = ''});
+  RepositoryExcepetion({this.message = ''});
 }
